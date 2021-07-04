@@ -1,9 +1,14 @@
 import React from "react";
 import { Image, View, StyleSheet, ScrollView } from "react-native";
 import { Input, Button, Text } from "galio-framework";
+import { useHistory } from "react-router-native";
+
 
 const RegisterForm = () => {
+  
+  let history = useHistory()
   return (
+
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo.jpeg")} />
       <Text h6 style={{ textAlign: "center"
@@ -72,7 +77,7 @@ const RegisterForm = () => {
         style={{ borderColor: "#C1D0EF", borderWidth: 3 }}
         placeholderTextColor="#000000"
       />
-      <Button style={{alignSelf: "center"}} color="#C1D0EF" round>
+      <Button onPress={() => {history.push("/food")}} style={{alignSelf: "center"}} color="#C1D0EF" round>
         Siguiente 
       </Button>
     </ScrollView>

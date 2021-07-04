@@ -1,8 +1,11 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 import { Input, Button, Text } from "galio-framework";
+import { useHistory } from "react-router";
 
 const LoginForm = () => {
+
+  let history = useHistory()
 
   return (
     <View style={styles.container}>
@@ -22,10 +25,10 @@ const LoginForm = () => {
         style={{ borderColor: "#C1D0EF", borderWidth: 3}}
         placeholderTextColor="#000000"
       />
-      <Button color="#C1D0EF" round>Login</Button>
+      <Button onPress={() => {history.push("/food")}} color="#C1D0EF" round>Login</Button>
     <View style={styles.notRegisteredTest}>
       <Text>No estas registrado? </Text>
-      <Text color="#C1D0EF">Crea una cuenta</Text>
+      <Text color="#C1D0EF" onStartShouldSetResponder={() => {history.push("/register")}}>Crea una cuenta</Text>
     </View>
     </View>
   );
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
 
     notRegisteredTest: {
         flexDirection: "row",
-        bottom: "-10%"
+        bottom: "-1%"
     }
   });
   
